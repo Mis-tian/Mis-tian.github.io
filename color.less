@@ -1969,17 +1969,25 @@ mark {
 .ant-btn-danger > a:only-child:after {
   background: transparent;
 }
-.ant-btn-danger:hover,
-.ant-btn-danger:focus {
+.ant-btn-danger:hover {
   color: #fff;
   background-color: #ff4d4f;
   border-color: #ff4d4f;
 }
-.ant-btn-danger:hover > a:only-child,
+.ant-btn-danger:hover > a:only-child {
+  color: currentColor;
+}
+.ant-btn-danger:hover > a:only-child:after {
+  background: transparent;
+}
+.ant-btn-danger:focus {
+  color: #ff4d4f;
+  background-color: #fff;
+  border-color: #ff4d4f;
+}
 .ant-btn-danger:focus > a:only-child {
   color: currentColor;
 }
-.ant-btn-danger:hover > a:only-child:after,
 .ant-btn-danger:focus > a:only-child:after {
   background: transparent;
 }
@@ -5049,7 +5057,6 @@ form .ant-upload {
 }
 .ant-table {
   color: rgba(0, 0, 0, 0.65);
-  border-radius: 4px 4px 0 0;
 }
 .ant-table table {
   border-collapse: separate;
@@ -5060,12 +5067,6 @@ form .ant-upload {
   background: #fafafa;
   color: rgba(0, 0, 0, 0.85);
   border-bottom: 1px solid #e8e8e8;
-}
-.ant-table-thead > tr > th:first-child {
-  border-top-left-radius: 4px;
-}
-.ant-table-thead > tr > th:last-child {
-  border-top-right-radius: 4px;
 }
 .ant-table-thead > tr > th[colspan] {
   border-bottom: 0;
@@ -5080,6 +5081,12 @@ form .ant-upload {
 }
 .ant-table-thead > tr > th .ant-table-filter-selected.anticon-filter {
   color: @primary-color;
+}
+.ant-table-thead > tr:first-child > th:first-child {
+  border-top-left-radius: 4px;
+}
+.ant-table-thead > tr:first-child > th:last-child {
+  border-top-right-radius: 4px;
 }
 .ant-table-tbody > tr > td {
   border-bottom: 1px solid #e8e8e8;
@@ -5114,7 +5121,8 @@ form .ant-upload {
   border-radius: 4px 4px 0 0;
 }
 .ant-table-bordered .ant-table-title + .ant-table-content,
-.ant-table-bordered .ant-table-title + .ant-table-content table {
+.ant-table-bordered .ant-table-title + .ant-table-content table,
+.ant-table-bordered .ant-table-title + .ant-table-content .ant-table-thead > tr:first-child > th {
   border-radius: 0;
 }
 .ant-table-without-column-header .ant-table-title + .ant-table-content,

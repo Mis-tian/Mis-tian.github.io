@@ -1,4 +1,14 @@
 
+@-webkit-keyframes diffZoomIn1 {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
 @keyframes diffZoomIn1 {
   0% {
     -webkit-transform: scale(0);
@@ -4162,7 +4172,6 @@ a.ant-notification-notice-close:focus {
   padding: 0;
   list-style: none;
   position: relative;
-  border-radius: 4px 4px 0 0;
   clear: both;
 }
 .ant-table-body {
@@ -4184,12 +4193,6 @@ a.ant-notification-notice-close:focus {
   color: rgba(0, 0, 0, 0.85);
   font-weight: 500;
   border-bottom: 1px solid #e8e8e8;
-}
-.ant-table-thead > tr > th:first-child {
-  border-top-left-radius: 4px;
-}
-.ant-table-thead > tr > th:last-child {
-  border-top-right-radius: 4px;
 }
 .ant-table-thead > tr > th[colspan] {
   text-align: center;
@@ -4220,6 +4223,12 @@ a.ant-notification-notice-close:focus {
 }
 .ant-table-thead > tr > th.ant-table-column-has-filters {
   overflow: hidden;
+}
+.ant-table-thead > tr:first-child > th:first-child {
+  border-top-left-radius: 4px;
+}
+.ant-table-thead > tr:first-child > th:last-child {
+  border-top-right-radius: 4px;
 }
 .ant-table-tbody > tr > td {
   border-bottom: 1px solid #e8e8e8;
@@ -4276,7 +4285,8 @@ a.ant-notification-notice-close:focus {
   overflow: hidden;
 }
 .ant-table-bordered .ant-table-title + .ant-table-content,
-.ant-table-bordered .ant-table-title + .ant-table-content table {
+.ant-table-bordered .ant-table-title + .ant-table-content table,
+.ant-table-bordered .ant-table-title + .ant-table-content .ant-table-thead > tr:first-child > th {
   border-radius: 0;
 }
 .ant-table-without-column-header .ant-table-title + .ant-table-content,
@@ -4381,10 +4391,10 @@ a.ant-notification-notice-close:focus {
   left: 0;
 }
 .ant-table-column-sorter-up:after {
-  bottom: -2px;
+  bottom: 0;
 }
 .ant-table-column-sorter-down:after {
-  top: 2px;
+  top: 0;
 }
 .ant-table-column-sorter .anticon-caret-up,
 .ant-table-column-sorter .anticon-caret-down {
@@ -4581,7 +4591,6 @@ tr.ant-table-expanded-row:hover {
   overflow-x: hidden;
 }
 .ant-table-scroll table {
-  width: auto;
   min-width: 100%;
 }
 .ant-table-body-inner {

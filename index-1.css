@@ -4278,6 +4278,10 @@ textarea.ant-input {
   line-height: 0;
   color: rgba(0, 0, 0, 0.65);
 }
+.ant-input-affix-wrapper .ant-input-prefix :not(.anticon),
+.ant-input-affix-wrapper .ant-input-suffix :not(.anticon) {
+  line-height: 1.5;
+}
 .ant-input-affix-wrapper .ant-input-prefix {
   left: 12px;
 }
@@ -4827,17 +4831,31 @@ textarea.ant-input {
   right: 0;
   background: transparent;
 }
-.ant-btn-danger:hover,
-.ant-btn-danger:focus {
+.ant-btn-danger:hover {
   color: #fff;
   background-color: #ff4d4f;
   border-color: #ff4d4f;
 }
-.ant-btn-danger:hover > a:only-child,
+.ant-btn-danger:hover > a:only-child {
+  color: currentColor;
+}
+.ant-btn-danger:hover > a:only-child:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: transparent;
+}
+.ant-btn-danger:focus {
+  color: #ff4d4f;
+  background-color: #fff;
+  border-color: #ff4d4f;
+}
 .ant-btn-danger:focus > a:only-child {
   color: currentColor;
 }
-.ant-btn-danger:hover > a:only-child:after,
 .ant-btn-danger:focus > a:only-child:after {
   content: '';
   position: absolute;
@@ -13994,8 +14012,6 @@ input[type="checkbox"].disabled {
   list-style: none;
   margin-bottom: 24px;
   vertical-align: top;
-  -webkit-transition: margin 0.15s steps(1);
-  transition: margin 0.15s steps(1);
 }
 .ant-form-item label {
   position: relative;
@@ -14029,8 +14045,6 @@ input[type="checkbox"].disabled {
 }
 .ant-form-item-with-help {
   margin-bottom: 5px;
-  -webkit-transition: none;
-  transition: none;
 }
 .ant-form-item-label {
   text-align: right;
@@ -14279,7 +14293,8 @@ form .ant-input-group-wrapper {
 .ant-form-inline .ant-form-item-with-help {
   margin-bottom: 24px;
 }
-.ant-form-inline .ant-form-item > div {
+.ant-form-inline .ant-form-item > .ant-form-item-control-wrapper,
+.ant-form-inline .ant-form-item > .ant-form-item-label {
   display: inline-block;
   vertical-align: middle;
 }
@@ -14588,15 +14603,5 @@ form .ant-input-group-wrapper {
     opacity: 0;
     -webkit-transform: translateY(-5px);
             transform: translateY(-5px);
-  }
-}
-@-webkit-keyframes diffZoomIn1 {
-  0% {
-    -webkit-transform: scale(0);
-            transform: scale(0);
-  }
-  100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
   }
 }
